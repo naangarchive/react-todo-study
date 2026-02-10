@@ -1,0 +1,28 @@
+.todo_item {
+  display:flex;
+  align-items: center;
+  margin-bottom:1.2rem;
+  padding:1.6rem;
+  border-radius:1.6rem;
+  gap:1.6rem;
+  background:var(--bg-color);
+  transition: background .2s;
+}
+.todo_item:hover {
+  background:#f6f3f4;
+}
+.todo_item p {
+  flex-grow: 1;
+  font-size:1.5rem;
+}
+.todo_item .btn_delete {
+  color:#d1d5dc;
+  transition: color .2s;
+}
+.todo_item .btn_delete:hover {
+  color:#6a7282;
+}
+.todo_item.done p {
+  color:var(--secondary-color);
+  text-decoration: line-through;
+}

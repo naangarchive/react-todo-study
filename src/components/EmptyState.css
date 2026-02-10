@@ -1,0 +1,9 @@
+.empty_state {
+  padding: 2rem;
+  text-align: center;
+}
+.empty_state p, .empty_state span {
+  font-size:1.4rem;
+  line-height: 1.5;
+  color: var(--secondary-color);
+}

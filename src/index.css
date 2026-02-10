@@ -1,0 +1,69 @@
+/* font */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+/* global */
+:root {
+  --primary-color:#2b7fff;
+  --secondary-color:#99a1af;
+  --text-color:#101828;
+  --bg-color:#fbf9fa;
+  --white-color:#fff;
+}
+
+/* reset */
+*, *::before, *::after {
+  margin:0; 
+  padding:0; 
+  box-sizing: border-box;
+  list-style: none;
+}
+html {
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-size: 62.5%;
+  color: var(--text-color);
+}
+body {
+  font-size:1.6rem;
+}
+a{
+  color: inherit;
+  text-decoration: none;
+}
+img{
+  max-width: 100%;
+}
+button{
+  background-color: transparent;
+  border: 0;
+  font-size: inherit;
+  cursor: pointer;
+}
+label {
+  position:relative;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+input[type=checkbox] {
+  appearance: none; 
+  width: 2.4rem;
+  height: 2.4rem;
+  border:0.2rem solid #d1d5dc;
+  border-radius:50%;
+}
+input[type=checkbox] + i {
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin:-0.5rem 0 0 -0.5rem;
+  font-size:1.2rem;
+  color:var(--white-color);
+  display:none;
+}
+input[type=checkbox]:checked {
+  background:var(--primary-color);
+  border-color:var(--primary-color);
+}
+input[type=checkbox]:checked + i {
+  display: block;
+}
