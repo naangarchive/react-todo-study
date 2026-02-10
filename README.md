@@ -1,16 +1,52 @@
-# React + Vite
+1. 실행방법
+   npm run dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+2. 컴포넌트 구조
+   App
+   ├─ Header
+   ├─ TodoForm (input + submit)
+   ├─ TodoList
+   │ ├─ TodoItem (반복 렌더링)
+   │ └─ EmptyState (할 일이 없을 때)
+   └─ Stats (완료: n/m)
 
-Currently, two official plugins are available:
+3. 상태(State) 설명
+   Header
+   - Props 없음
+   - State: 없음
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   EmptyState
+   - Props 없음
+   - State: 없음
 
-## React Compiler
+   TodoForm
+   - Props
+     - addTodo: (text: string) => void
+   - State
+     - text: string (현재 인풋 값 = value)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+   TodoList
+   - Props
+     - todos: { id: number; text: string; completed: boolean }[] (할 일 목록)
+     - deleteTodo: (id: number) => void (삭제 콜백)
+     - toggleTodo: (id: number) => void (토글 콜백)
+   - State 없음
 
-## Expanding the ESLint configuration
+   TodoItem
+   - Props
+     - todos: { id: number; text: string; completed: boolean } (할 일 목록)
+     - deleteTodo: (id: number) => void (삭제 콜백)
+     - toggleTodo: (id: number) => void (토글 콜백)
+   - State 없음
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+   States
+   - Props
+     - total : number 전체 개수
+     - completed : number 완료 개수
+   - State 없음
+
+4. 불변성 업데이트
+   const addTodo = (text) => {
+   const newTodo = { id: Date.now(), text, completed: false };
+   setTodos(prev => [...prev, newTodo]); //기존 배열을 변경하지 않고, 새 배열을 만들어 추가했다.
+   };
